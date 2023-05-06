@@ -11,6 +11,7 @@ import Game from "../components/Game";
 // Styling and Animation
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { fadeIn } from "../animations";
 
 import { useLocation } from "react-router-dom";
 
@@ -30,7 +31,7 @@ const Home = () => {
     (state) => state.games
   ); // Here basically, the reducer is called which holds the state
   return (
-    <GameList>
+    <GameList variants={fadeIn} initial="hidden" animate="show">
       {pathId && <GameDetail />}
       {searched.length ? (
         <div className="searched">
