@@ -26,10 +26,31 @@ const Home = () => {
   }, [dispatch]); // adding [] after comma makes useEffect to call the underlying method once when the page is loaded and it is not binded to any state change.
 
   // Get that data back
-  const { popular, newGames, upcoming } = useSelector((state) => state.games); // Here basically, the reducer is called which holds the state
+  const { popular, newGames, upcoming, searched } = useSelector(
+    (state) => state.games
+  ); // Here basically, the reducer is called which holds the state
   return (
     <GameList>
       {pathId && <GameDetail />}
+      {searched.length ? (
+        <div className="searched">
+          <h2>Searched Games</h2>
+          <Games>
+            {searched.map((game) => (
+              <Game
+                name={game.name}
+                released={game.released}
+                id={game.id}
+                image={game.background_image}
+                key={game.id}
+              />
+            ))}
+          </Games>
+        </div>
+      ) : (
+        ""
+      )}
+
       <h2>Upcoming Games</h2>
       <Games>
         {upcoming.map((game) => (
