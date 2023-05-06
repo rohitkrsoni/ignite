@@ -38,6 +38,9 @@ const GlobalStyles = createGlobalStyle`
         text-decoration: none;
         color:#333
     }
+    img {
+        display: block; // to fix the underlying space at the bottom of image
+    }
 `;
 
 export default GlobalStyles;

@@ -14,6 +14,7 @@ const Game = ({ name, released, image, id }) => {
   //Load Details
   const dispatch = useDispatch();
   const loadDetailHandler = () => {
+    document.body.style.overflow = "hidden"; // disable the scroll of the main page, only popup scroll enabled when popup is visible
     dispatch(loadDetail(id));
   };
 
@@ -34,6 +35,7 @@ const StyledGame = styled(motion.div)`
   text-align: center;
   border-radius: 1rem;
   cursor: pointer;
+  overflow: hidden; // not let image stretch aroung the border
   img {
     width: 100%;
     height: 40vh;
