@@ -41,6 +41,10 @@ const GlobalStyles = createGlobalStyle`
     img {
         display: block; // to fix the underlying space at the bottom of image
     }
+    input {
+        font-weight: bold;
+        font-family: "Montserrat", sans-serif;
+    }
 `;
 
 export default GlobalStyles;
